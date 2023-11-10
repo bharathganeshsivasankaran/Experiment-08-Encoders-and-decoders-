@@ -60,20 +60,48 @@ D7 = X Y Z
 
 
 ### PROGRAM 
-/*
+```
 Program for Endocers and Decoders  and verify its truth table in quartus using Verilog programming.
-Developed by: 
-RegisterNumber:  
-*/
+Developed by: BHARATHGANESH S
+RegisterNumber:  212222230022
 
-
-
-
+```
+### ENCODER
+```
+module enc(a0,a1,a2,y0,y1,y2,y3,y4,y5,y6,y7);
+input y0,y1,y2,y3,y4,y5,y6,y7;
+output a0,a1,a2;
+or(a0,y7,y5,y3,y1);
+or(a1,y7,y6,y3,y2);
+or(a2,y7,y6,y5,y4);
+endmodule
+```
+### DECODER
+```
+module dec (a0,a1,a2,y0,y1,y2,y3,y4,y5,y6,y7);
+input a0,a1,a2;
+output y0,y1,y2,y3,y4,y5,y6,y7;
+wire a0bar,a1bar,a2bar;
+not(a0bar,a0);
+not(a1bar,a1);
+not(a2bar,a2);
+and(y0,a0bar,a1bar,a2bar);
+and(y1,a0,a1bar,a2bar);
+and(y2,a0bar,a1,a2bar);
+and(y3,a0,a1,a2bar);
+and(y4,a0bar,a1bar,a2);
+and(y5,a0,a1bar,a2);
+and(y6,a0bar,a1,a2);
+and(y7,a0,a1,a2);
+endmodule
+```
 
 
 ### RTL LOGIC  
-
-
+### ENCODER
+![281463969-fa2f200d-6f09-4628-ac73-8c935aca108a](https://github.com/bharathganeshsivasankaran/Experiment-08-Encoders-and-decoders-/assets/119478098/740b5706-9fb7-4ad0-af6b-1db873d2ba5e)
+### DECODER
+![281463876-1369ed13-d14b-499e-81bd-a8d569d40d4e](https://github.com/bharathganeshsivasankaran/Experiment-08-Encoders-and-decoders-/assets/119478098/fc38d39a-ac34-4568-83a1-4df1438a9bdc)
 
 
 
@@ -81,16 +109,26 @@ RegisterNumber:
 
 
 ### TIMING DIGRAMS  
+### ENCODER
 
+![281464089-03b5aaca-4445-4e15-ae38-1ba067a4f51c](https://github.com/bharathganeshsivasankaran/Experiment-08-Encoders-and-decoders-/assets/119478098/0b97a032-3520-48b9-97b4-a54f8fc1f142)
 
+### DECODER
+![281464125-609c9d0f-71ab-48c0-9b54-8c258ded4051](https://github.com/bharathganeshsivasankaran/Experiment-08-Encoders-and-decoders-/assets/119478098/657b4e50-d6fc-46d2-aea0-0ecb24008a24)
 
 
 
 ### TRUTH TABLE 
 
+### ENCODER
 
+![281464004-c2d9e00e-622a-457c-98e6-1df7e4dc9bf8](https://github.com/bharathganeshsivasankaran/Experiment-08-Encoders-and-decoders-/assets/119478098/789f7f24-1dca-446e-86ba-fb73f4eda7ba)
 
+### DECODER
+
+![281464043-9c0db7b3-6141-45ec-92b7-0f395bc3a204](https://github.com/bharathganeshsivasankaran/Experiment-08-Encoders-and-decoders-/assets/119478098/df70e60f-a3a2-441b-aa4e-2250a6eb13d9)
 
 
 
 ### RESULTS 
+Thus, 8 to 3 Encoder and 3 to 8 Decoder is implemented using verilog and its outputs is validated.
